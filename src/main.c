@@ -16,9 +16,11 @@ typedef struct token {
 // TODO:
 // work on tokenize()
 
-token* tokenize(char ){ 
+token* tokenize(char* file[100]){ 
 	for(int y = 0; y < 100; y++){
-		
+		for(int x = 0; x < 100; x++){
+			
+		}
 	}
 }
 
@@ -38,12 +40,12 @@ int main(int argc, char *argv[]){
 	file = fopen(argv[1], "r");                                                          // open the file
 	char *contents[100];                                                                 // variable for contents of file
 	char *line = malloc(100);                                                            // allocate memory for a string to contain the line 
-	for(int i = 0; i < 100; i++){                                                        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! FINISH COMMENTING HERE
-		fgets(line, 100, file);
-		contents[i] = malloc(100);
-		strcpy(contents[i], line);
+	for(int i = 0; i < 100; i++){                                                        // iterate through 100
+		fgets(line, 100, file);                                                          // get current line contents
+		contents[i] = malloc(100);                                                       // alocate memory for current line in total file contents 
+		strcpy(contents[i], line);                                                       // copy line to contents[line]
 	}
-	printf("%s", contents[3]);
+	tokenize(contents);                                                                  // tokenize the file
 	fclose(file);                                                                        // close the file
 	return 0;                                                                            // SUCCESS!
 }
