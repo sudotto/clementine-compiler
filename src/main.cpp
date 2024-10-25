@@ -1,21 +1,22 @@
 #include <iostream>
 #include <stdlib.h>
 
-typedef enum token_type{
+typedef enum token_type {                                                                          // enum for tokens
 	ret,
 	int_lit,
 	semi
 } token_type;
 
-typedef struct token {
+typedef struct token {                                                                             // token structure
+	token_type type;                                                                               // attribute for token type
+	std::string value;                                                                             // attribute for value of token
+} token;
 
+void error(std::string msg, int code){                                                             // function to print an error
+	std::cout << "\033[1;31m[ERROR]" << msg << "\033[0m\n";                                        // print red error text
+	exit(code);                                                                                    // exit with error code
 }
 
-void error(std::string msg, int code){
-	std::cout << "\033[1;31m[ERROR] %s\033[0m" << std::endln;
-	exit(code);
-}
-
-int main(int argc, char* argv[]){
+int main(int argv, char* argv[]){
 	
 }

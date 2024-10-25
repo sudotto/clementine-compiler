@@ -19,7 +19,7 @@ typedef struct token {
 token* tokenize(char* file[100]){ 
 	for(int y = 0; y < 100; y++){
 		for(int x = 0; x < 100; x++){
-			
+			printf()
 		}
 	}
 }
