@@ -27,8 +27,8 @@ std::vector<std::string> read_file(std::string filename){                      /
 		error("couldn't open file", 2);                                        // couldn't open
 	}
 	std::string line;
-	while(std::getline(file, line)){
-		std::cout << line << std::endl;
+	for(int i = 0; std::getline(file, line); i++){
+		contents.push_back(line);
 	}
 	file.close();                                                              // close file
 	return contents;                                                           // ret file contents
@@ -38,6 +38,9 @@ int main(int argc, char* argv[]){                                              /
 	if(argc < 2){                                                              // if less than 2 arguments
 		error("input file missing", 1);                                        // return error
 	}
-	std::vector<std::string> file_contents = read_file(argv[1]);               // read file
+	std::vector<std::string> contents = read_file(argv[1]);               // read file
+	for(int i = 0; i < contents.size(); i++){
+		std::cout << contents[i] << std::endl;
+	}
 	return 0;                                                                  // success!
 }
