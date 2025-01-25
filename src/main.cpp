@@ -3,38 +3,13 @@
 #include <vector>
 #include <stdlib.h>
 
-typedef enum token_type {                                                      // enum for tokens
-	ret,                                                                       // return
-	int_lit,                                                                   // int
-	semi                                                                       // ;
-} token_type;
+#include "file.h"
+#include "token.h"
+#include "alert.h"
 
-typedef struct token {                                                         // token structure
-	token_type type;                                                           // attribute for token type
-	std::string value;                                                         // attribute for value of token
-} token;
-
-void error(std::string msg, int code){                                         // function to print an error
-	std::cout << "\033[1;31m[ERROR] " << msg << "\033[0m" << std::endl;        // print red error text
-	exit(code);                                                                // exit with error code
-}
-
-// WORK ON TOKENIZE
-
-std::vector<std::string> read_file(std::string filename){                      // read file func
-	std::vector<std::string> contents;                                         // contents string vector
-	std::ifstream file;                                                        // file variable
-	file.open(filename);                                                       // open provided file
-	if(!file.is_open()){                                                       // if didn't open
-		error("couldn't open file", 2);                                        // couldn't open
-	}
-	std::string line;                                                          // line string
-	for(int i = 0; std::getline(file, line); i++){                             // iterate until getline fails and inc i
-		contents.push_back(line);                                              // append line to contents
-	}
-	file.close();                                                              // close file
-	return contents;                                                           // ret file contents
-}
+///////////////////
+// MAIN
+///////////////////
 
 int main(int argc, char* argv[]){                                              // main function
 	if(argc < 2){                                                              // if less than 2 arguments

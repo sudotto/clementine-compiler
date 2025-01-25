@@ -1,5 +1,5 @@
-use <std.lib>
+use std.ss     // import std source file
 
-fn main() int {
-	return 0;
+int main(){    // function called main that returns an assembly quadword (64 bits)
+	ret 0;     // returns 0
 }
